@@ -22,5 +22,12 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "semi": "off",
     "no-console": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
