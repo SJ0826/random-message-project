@@ -1,0 +1,12 @@
+@mixin set-box-size($height, $width: 100%, $border-radius: 0) {
+  height: $height;
+  width: $width;
+  border-radius: $border-radius;
+}
+
+@mixin set-center-aligned($display: flex, $align-items: center, $justify-content: center) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
