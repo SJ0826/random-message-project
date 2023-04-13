@@ -1,0 +1,6 @@
+.page__layout{
+  @include set-center-aligned;
+  flex-direction: column;
+  width: 70vw;
+  height: 100vh;
+}
