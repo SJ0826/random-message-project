@@ -35,9 +35,13 @@
   background-position: center;
 }
 
+.start__description__content__wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
 .start__description__content{
   background-color: $back-ground-light;
-  width: 87%;
   padding: 1em;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
@@ -45,3 +49,6 @@
   color: black;
 }
 
+.start__description__date{
+  color: $text-light1;
+}
