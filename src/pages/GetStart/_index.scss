@@ -1,0 +1,20 @@
+#root{
+  height: 100%;
+}
+
+.start__container{
+  @include set-box-size(100%);
+  @include set-center-aligned;
+
+  flex-direction: column;
+  background-color: $main-color;
+  
+  
+}
+
+.start__title{
+  font-size: 3em;
+  font-weight: bold;
+  color: $text-light1;
+  animation: fade-in 5s;
+}
