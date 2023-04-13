@@ -79,6 +79,7 @@ button {
 
 .start__description__content {
   background-color: #FFFFFF;
+  white-space: pre-line;
   padding: 1em;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
