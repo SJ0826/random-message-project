@@ -43,8 +43,16 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   background-color: #39B5E0;
+}
+
+.page__layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70vw;
+  height: 100vh;
 }
 
 .start__title {
@@ -57,14 +65,14 @@ button {
 .start__description__wrapper {
   display: flex;
   align-items: flex-end;
-  justify-content: space-around;
-  width: 38em;
+  justify-content: center;
 }
 
 .start__description__icon {
   height: 3em;
   width: 3em;
   border-radius: 3em;
+  margin-right: 1em;
   border: 1px solid #0B2447;
   background-color: wheat;
   background-image: url("../assets/image/cat.png");
@@ -72,12 +80,32 @@ button {
   background-position: center;
 }
 
+.start__description__content__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
 .start__description__content {
   background-color: #FFFFFF;
-  width: 87%;
+  white-space: pre-line;
   padding: 1em;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
   border-bottom-right-radius: 30px;
   color: black;
+}
+
+.start__description__date {
+  color: #FFFFFF;
+}
+
+.messageList__container {
+  margin-top: 2em;
+}
+
+.messageList__header {
+  padding: 1em;
+  background-color: wheat;
+  border-bottom: 1px solid #0B2447;
 }
