@@ -143,3 +143,17 @@ button {
 .messageList__header .send__message__button:active {
   box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
 }
+
+.messageItem {
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 0.5em;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.messageItem:hover {
+  cursor: pointer;
+}
+.messageItem .messageItem__name {
+  margin-left: 0.5em;
+  font-weight: 600;
+}

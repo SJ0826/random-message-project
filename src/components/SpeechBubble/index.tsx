@@ -12,8 +12,8 @@ const SpeechBubble = ({ text }: SpeechBubbleProps) => {
 			<div className="start__description__icon" />
 			<div className="start__description__content__wrapper">
 				<span className="start__description__content">
-					{text.split('<br/>').map((txt) => (
-						<>{txt}</>
+					{text.split('<br/>').map((txt, index) => (
+						<div key={index}>{txt}</div>
 					))}
 				</span>
 				<div className="start__description__date">{date}</div>
