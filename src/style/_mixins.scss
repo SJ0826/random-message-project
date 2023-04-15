@@ -10,3 +10,11 @@
   justify-content: $justify-content;
 }
 
+@mixin set-button($padding: 0.5em, $bgColor: none, $color: none){
+  padding: $padding;
+  background-color: $bgColor;
+  color: $color;
+
+      
+  cursor: pointer;
+}
