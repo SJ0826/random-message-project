@@ -3,7 +3,7 @@
 .start__container{
   @include set-box-size();
   @include set-center-aligned;
-
+  flex-direction: column;
   background-color: $main-color;
 }
 
