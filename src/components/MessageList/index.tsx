@@ -1,6 +1,5 @@
 import MessageItem from 'components/MessageItem'
 import { messageListAtom } from 'lib/recoil/atom'
-
 import React from 'react'
 import { useRecoilValue } from 'recoil'
 
@@ -15,7 +14,6 @@ const MessageList = () => {
 				</div>
 				<div className="send__message__button">메세지 보내기</div>
 			</div>
-
 			<div className="messageList_list">
 				{messageList.map((message) => (
 					<MessageItem key={message.id} name={message.name} />
