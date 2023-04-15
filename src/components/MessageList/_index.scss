@@ -1,10 +1,55 @@
 .messageList__container{
-  margin-top: 2em;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  width: 100%;
+  max-width: 650px;
+
+  @include tablet-size() {
+    margin-left: 0rem;
+  }
+}
+
+.messageList__content{
+  padding: 1rem;
+  border-bottom: 1px solid $point-blue1;
 }
 
 .messageList__header{
-  padding: 1em;
-  background-color: wheat;
-  border-bottom: 1px solid $point-blue1;
+  @extend .messageList__content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  .received__message{
+    display: flex;
+    align-items: center;
+    .received__message__number {
+    @include set-box-size(1rem, 1rem, 1rem);
+    @include set-center-aligned;
+    margin-left: 1em;
+    padding: 1em;
+    background-color: $point-red1;
+    color: $text-light1;
+    }
+  }
+
+  .send__message__button{
+    @include set-button(0.5rem, #F0D264, $text-light1);
+
+    border-radius: 0.5rem; 
+    box-shadow: 0 0 0 1px #F0D264 inset,
+        0 0 0 2px rgba(255,255,255,0.15) inset,
+        0 8px 0 0 rgba(196, 172, 83, .7),
+        0 8px 0 1px rgba(0,0,0,.4),
+        0 8px 8px 1px rgba(0,0,0,0.5);
+
+    &:active {
+          box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 0 0 1px rgba(0,0,0,0.4);
+        }
+    }
+}
+
+.messageList_list{
+   @extend .messageList__content
 }
 

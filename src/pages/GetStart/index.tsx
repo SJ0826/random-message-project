@@ -1,3 +1,4 @@
+import Footer from 'components/Footer'
 import Layout from 'components/Layout'
 import Logo from 'components/Logo'
 import MessageList from 'components/MessageList'
@@ -13,6 +14,7 @@ const GetStart = () => {
 				<Logo />
 				<SpeechBubble text={description} />
 				<MessageList />
+				<Footer />
 			</Layout>
 		</div>
 	)

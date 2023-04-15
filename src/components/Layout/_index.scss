@@ -2,5 +2,10 @@
   @include set-center-aligned;
   flex-direction: column;
   width: 70vw;
-  height: 100vh;
+  height: 100%;
+
+  @include tablet-size {
+    width: 90%;
+  }
+
 }

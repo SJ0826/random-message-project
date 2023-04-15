@@ -31,11 +31,6 @@ button {
     opacity: 1;
   }
 }
-#root {
-  width: 100%;
-  height: 100%;
-}
-
 .start__container {
   height: 100%;
   width: 100%;
@@ -52,14 +47,26 @@ button {
   justify-content: center;
   flex-direction: column;
   width: 70vw;
-  height: 100vh;
+  height: 100%;
+}
+@media (max-width: 660px) {
+  .page__layout {
+    width: 90%;
+  }
 }
 
 .start__title {
-  margin: 1em;
-  font-size: 3em;
+  margin: 5rem 0rem 2rem 0rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #FFFFFF;
+}
+@media (max-width: 660px) {
+  .start__title {
+    font-size: 2rem;
+    margin: 3rem 0rem 0rem 0rem;
+    height: 5rem;
+  }
 }
 
 .start__description__wrapper {
@@ -67,11 +74,16 @@ button {
   align-items: flex-end;
   justify-content: center;
 }
+@media (max-width: 660px) {
+  .start__description__wrapper {
+    margin-top: 1rem;
+  }
+}
 
 .start__description__icon {
-  height: 3em;
-  width: 3em;
-  border-radius: 3em;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 3rem;
   margin-right: 1em;
   border: 1px solid #0B2447;
   background-color: wheat;
@@ -83,17 +95,27 @@ button {
 .start__description__content__wrapper {
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: 30rem;
+}
+@media (max-width: 660px) {
+  .start__description__content__wrapper {
+    width: 70%;
+  }
 }
 
 .start__description__content {
   background-color: #FFFFFF;
   white-space: pre-line;
-  padding: 1em;
+  padding: 1rem;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
   border-bottom-right-radius: 30px;
   color: black;
+}
+@media (max-width: 660px) {
+  .start__description__content {
+    font-size: 0.8rem;
+  }
 }
 
 .start__description__date {
@@ -101,11 +123,90 @@ button {
 }
 
 .messageList__container {
-  margin-top: 2em;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  width: 100%;
+  max-width: 650px;
+}
+@media (max-width: 660px) {
+  .messageList__container {
+    margin-left: 0rem;
+  }
+}
+
+.messageList__content, .messageList_list, .messageList__header {
+  padding: 1rem;
+  border-bottom: 1px solid #0B2447;
 }
 
 .messageList__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.messageList__header .received__message {
+  display: flex;
+  align-items: center;
+}
+.messageList__header .received__message .received__message__number {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1em;
   padding: 1em;
-  background-color: wheat;
-  border-bottom: 1px solid #0B2447;
+  background-color: #E63E6D;
+  color: #FFFFFF;
+}
+.messageList__header .send__message__button {
+  padding: 0.5rem;
+  background-color: #F0D264;
+  color: #FFFFFF;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, 0.7), 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.messageList__header .send__message__button:active {
+  box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.messageItem {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.messageItem:hover {
+  cursor: pointer;
+}
+.messageItem .messageItem__name {
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+.footer {
+  width: 100%;
+  max-width: 650px;
+  padding: 1rem;
+  text-align: left;
+}
+.footer .github__link {
+  display: flex;
+  align-items: center;
+  text-decoration-line: none;
+  color: #000000;
+}
+.footer .github__link:hover {
+  cursor: pointer;
+}
+
+.github__link__icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  background-image: url("../assets/image/github-mark.png");
+  background-size: cover;
+  background-position: center;
 }
