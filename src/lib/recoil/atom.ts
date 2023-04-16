@@ -13,5 +13,5 @@ export const messageListAtom = atom({
 
 export const setModalOpen = atom({
 	key: 'modalOpenState',
-	default: true,
+	default: false,
 })

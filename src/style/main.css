@@ -31,6 +31,16 @@ button {
     opacity: 1;
   }
 }
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
 .start__container {
   height: 100%;
   width: 100%;
@@ -221,4 +231,5 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #FFFFFF;
+  animation: modal-show 0.3s;
 }
