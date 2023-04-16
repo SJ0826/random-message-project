@@ -1,4 +1,4 @@
-import { setModalOpen } from 'lib/recoil/atom'
+import { setModalOpen } from 'lib/recoil/recoilMessageState'
 import { useEffect, useRef } from 'react'
 import { useSetRecoilState } from 'recoil'
 

@@ -1,5 +1,5 @@
 import MessageItem from 'components/MessageItem'
-import { messageListAtom, setModalOpen } from 'lib/recoil/atom'
+import { messageListAtom, setModalOpen } from 'lib/recoil/recoilMessageState'
 import React from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
