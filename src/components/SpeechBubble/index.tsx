@@ -1,24 +1,31 @@
+import classNames from 'classnames'
 import getToday from 'lib/util/getToday'
 import React from 'react'
 
 interface SpeechBubbleProps {
 	text: string
+	bubbleState: string
 }
 
-const SpeechBubble = ({ text }: SpeechBubbleProps) => {
+const SpeechBubble = ({ text, bubbleState }: SpeechBubbleProps) => {
 	const date = getToday()
+
 	return (
-		<section className="start__description__wrapper">
-			<div className="start__description__icon" />
+		<div className="start__description__wrapper">
+			<div className={classNames('start__description__icon', bubbleState)} />
 			<div className="start__description__content__wrapper">
-				<span className="start__description__content">
+				<span
+					className={classNames('start__description__content', bubbleState)}
+				>
 					{text.split('<br/>').map((txt, index) => (
 						<div key={index}>{txt}</div>
 					))}
 				</span>
-				<div className="start__description__date">{date}</div>
+				<div className={classNames('start__description__date', bubbleState)}>
+					{date}
+				</div>
 			</div>
-		</section>
+		</div>
 	)
 }
 

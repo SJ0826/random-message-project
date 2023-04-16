@@ -16,7 +16,7 @@ const GetStart = () => {
 		<div className="start__container">
 			<Layout>
 				<Logo />
-				<SpeechBubble text={description} />
+				<SpeechBubble text={description} bubbleState={'default'} />
 				<MessageList />
 				<Footer />
 			</Layout>

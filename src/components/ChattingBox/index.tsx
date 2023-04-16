@@ -1,15 +1,18 @@
 import useModal from 'lib/hooks/useModal'
-import { setModalOpen } from 'lib/recoil/atom'
 import React from 'react'
-import { useSetRecoilState } from 'recoil'
+import ChattingBoxHeader from './ChattingBoxHeader'
+import ChattingBoxForm from './ChattingBoxForm'
+import ChattingPreview from './ChattingPreview'
 
 const ChattingBox = () => {
-	const setModalstate = useSetRecoilState(setModalOpen)
 	return (
-		<div className="chatting-box" ref={useModal()}>
-			<div>chatting box</div>
-			<button onClick={() => setModalstate(false)}>닫기</button>
-		</div>
+		<header className="chattingBox__background">
+			<div className="chattingBox" ref={useModal()}>
+				<ChattingBoxHeader />
+				<ChattingPreview />
+				<ChattingBoxForm />
+			</div>
+		</header>
 	)
 }
 
