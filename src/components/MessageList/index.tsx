@@ -1,10 +1,11 @@
 import MessageItem from 'components/MessageItem'
-import { messageListAtom } from 'lib/recoil/atom'
+import { messageListAtom, setModalOpen } from 'lib/recoil/atom'
 import React from 'react'
-import { useRecoilValue } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 const MessageList = () => {
 	const messageList = useRecoilValue(messageListAtom)
+	const setModalstate = useSetRecoilState(setModalOpen)
 	return (
 		<section className="messageList__container">
 			<div className="messageList__header">
@@ -12,7 +13,12 @@ const MessageList = () => {
 					<span>받은 메세지</span>
 					<div className="received__message__number">{messageList.length}</div>
 				</div>
-				<div className="send__message__button">메세지 보내기</div>
+				<div
+					className="send__message__button"
+					onClick={() => setModalstate(true)}
+				>
+					메세지 보내기
+				</div>
 			</div>
 			<div className="messageList_list">
 				{messageList.map((message) => (

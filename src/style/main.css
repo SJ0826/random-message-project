@@ -38,6 +38,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-color: #39B5E0;
 }
 
@@ -209,4 +210,15 @@ button {
   background-image: url("../assets/image/github-mark.png");
   background-size: cover;
   background-position: center;
+}
+
+.chatting-box {
+  width: 600px;
+  height: 400px;
+  z-index: 99;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
 }

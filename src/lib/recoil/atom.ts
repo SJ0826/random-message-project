@@ -10,3 +10,8 @@ export const messageListAtom = atom({
 		{ id: 4, name: '도운', message: 'hi' },
 	] as MessageInterface[],
 })
+
+export const setModalOpen = atom({
+	key: 'modalOpenState',
+	default: true,
+})
