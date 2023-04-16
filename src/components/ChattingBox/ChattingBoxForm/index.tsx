@@ -1,18 +1,7 @@
-import { messageFormAtom } from 'lib/recoil/recoilMessageFormState'
-import React, { FormEvent, useRef } from 'react'
-import { useRecoilState } from 'recoil'
+import useMessageFormInput from 'lib/hooks/useMessageFormInput'
+import React, { FormEvent } from 'react'
 
 const ChattingBoxForm = () => {
-	const messageInputRef = useRef<HTMLTextAreaElement>(null)
-	const [messageForm, setMessageForm] = useRecoilState(messageFormAtom)
-	const defaultRecoilMessageForm = { ...messageForm }
-
-	const onChangeMessageInput = () => {
-		if (messageInputRef.current) {
-			defaultRecoilMessageForm.message = messageInputRef.current?.value
-			setMessageForm(defaultRecoilMessageForm)
-		}
-	}
 	const onSubmitChatForm = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 	}
@@ -21,8 +10,7 @@ const ChattingBoxForm = () => {
 			<textarea
 				id="message"
 				className="chat-form__msg"
-				ref={messageInputRef}
-				onChange={onChangeMessageInput}
+				onChange={useMessageFormInput()}
 			/>
 			<button className="chat-form__bt" type="submit">
 				전송
