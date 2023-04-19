@@ -4,16 +4,19 @@ import useMessageFormInput from 'lib/hooks/useMessageFormInput'
 import { messageFormAtom } from 'lib/recoil/recoilMessageFormState'
 import { messageSelector } from 'lib/recoil/recoilMessageState'
 import { MessageInterface } from 'lib/types/messageInterface'
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useRef } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 const ChattingBoxForm = () => {
+	const inputRef = useRef(null)
 	const messageForm = useRecoilValue(messageFormAtom)
 	const setMessageList = useSetRecoilState<MessageInterface[]>(messageSelector)
 	const onSubmitChatForm = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
+		inputRef.current.value = ''
 		const receivedMessage = await getMessage()
-		setMessageList([
+		setMessageList((prevValue) => [
+			...prevValue,
 			{
 				id: receivedMessage.id,
 				name: receivedMessage.name,
@@ -30,6 +33,7 @@ const ChattingBoxForm = () => {
 				id="message"
 				className="chat-form__msg"
 				onChange={useMessageFormInput()}
+				ref={inputRef}
 			/>
 			<button className="chat-form__bt" type="submit">
 				전송

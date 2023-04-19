@@ -10,7 +10,7 @@ export const messageSelector = selector({
 	key: 'messageListSelector',
 	get: ({ get }) => get(messageListAtom),
 	set: ({ set }, newValue: MessageInterface[]) => {
-		set(messageListAtom, (prevValue) => [...prevValue, newValue[0]])
+		set(messageListAtom, newValue)
 	},
 })
 

@@ -1,17 +1,17 @@
 import SpeechBubble from 'components/SpeechBubble'
 import React from 'react'
-const ChattingPreview = () => {
+
+interface ChattingViewProps {
+	message: string
+	receivedMessage: string
+}
+const ChattingView = ({ message, receivedMessage }: ChattingViewProps) => {
 	return (
 		<main className="preview__bubbles">
-			<SpeechBubble text={'hi'} bubbleState={'send'} />
-			<SpeechBubble
-				text={
-					'fsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsdfsfdsdfsdfsdfsd'
-				}
-				bubbleState={'receive'}
-			/>
+			<SpeechBubble text={message} bubbleState={'send'} />
+			<SpeechBubble text={receivedMessage} bubbleState={'receive'} />
 		</main>
 	)
 }
 
-export default ChattingPreview
+export default ChattingView
