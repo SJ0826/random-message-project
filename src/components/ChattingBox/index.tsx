@@ -1,9 +1,9 @@
 import useModal from 'lib/hooks/useModal'
-import React, { useState } from 'react'
+import React from 'react'
 import ChattingBoxHeader from './ChattingBoxHeader'
 import ChattingBoxForm from './ChattingBoxForm'
 import ChattingView from './ChattingView'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil'
 import { messageSelector } from 'lib/recoil/recoilMessageState'
 import { MessageInterface } from 'lib/types/messageInterface'
 
