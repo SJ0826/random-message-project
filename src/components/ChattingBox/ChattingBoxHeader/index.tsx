@@ -1,10 +1,12 @@
 import useMessageFormInput from 'lib/hooks/useMessageFormInput'
+import { messageFormAtom } from 'lib/recoil/recoilMessageFormState'
 import { setModalOpen } from 'lib/recoil/recoilMessageState'
 import React from 'react'
-import { useSetRecoilState } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 const ChattingBoxHeader = () => {
 	const setModalstate = useSetRecoilState(setModalOpen)
+	const messageForm = useRecoilValue(messageFormAtom)
 
 	return (
 		<div className="chattingBox__header">
@@ -24,6 +26,7 @@ const ChattingBoxHeader = () => {
 					className="chattingBox__header__input"
 					placeholder="이름을 입력해주세요"
 					onChange={useMessageFormInput()}
+					value={messageForm.name}
 				/>
 			</div>
 		</div>

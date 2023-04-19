@@ -9,6 +9,7 @@ const ChattingView = ({ message, receivedMessage }: ChattingViewProps) => {
 	const [showReceivedMessage, setShowReceivedMessage] = useState(false)
 
 	useEffect(() => {
+		setShowReceivedMessage(false)
 		const handleShowReceivedMessage = () => {
 			setTimeout(() => {
 				setShowReceivedMessage(true)
@@ -18,7 +19,7 @@ const ChattingView = ({ message, receivedMessage }: ChattingViewProps) => {
 		handleShowReceivedMessage()
 	}, [receivedMessage])
 
-	useEffect(() => setShowReceivedMessage(false), [])
+	useEffect(() => setShowReceivedMessage(true), [])
 
 	return (
 		<main className="preview__bubbles">
