@@ -5,6 +5,9 @@
 }
 
 .chattingBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 700px;
   height: 500px;
   z-index: 99;
@@ -14,10 +17,15 @@
   transform: translate(-50%, -50%);
   background-color: $back-ground-light;
   animation: modal-show 0.3s;
+
+  @include tablet-size(){
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @import './ChattingBoxHeader/index';
 @import './ChattingBoxForm/index';
-@import './ChattingPreview/index'
+@import './ChattingView/index'
 
 

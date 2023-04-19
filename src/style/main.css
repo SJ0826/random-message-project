@@ -58,7 +58,7 @@ button {
   justify-content: center;
   flex-direction: column;
   width: 70vw;
-  height: 100%;
+  height: 100vh;
 }
 @media (max-width: 660px) {
   .page__layout {
@@ -222,6 +222,8 @@ button {
 .footer {
   width: 100%;
   max-width: 650px;
+  position: absolute;
+  bottom: 0;
   padding: 1rem;
   text-align: left;
 }
@@ -254,6 +256,9 @@ button {
 }
 
 .chattingBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 700px;
   height: 500px;
   z-index: 99;
@@ -264,6 +269,12 @@ button {
   background-color: #FFFFFF;
   animation: modal-show 0.3s;
 }
+@media (max-width: 660px) {
+  .chattingBox {
+    width: 100%;
+    height: 100%;
+  }
+}
 
 .chattingBox__header {
   height: 18%;
@@ -273,6 +284,7 @@ button {
 .chattingBox__header__btnWrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 40%;
   padding: 0.3rem 1.2rem;
@@ -292,12 +304,22 @@ button {
   height: 1rem;
   font-size: 1.2rem;
 }
+@media (max-width: 660px) {
+  .chattingBox__header__btnWrapper .chattingBox__header__closeBtn {
+    margin-bottom: 0.5rem;
+  }
+}
 
 .chattingBox__header__name {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 60%;
+}
+@media (max-width: 660px) {
+  .chattingBox__header__name {
+    padding: 0rem 0.5rem;
+  }
 }
 .chattingBox__header__name .chattingBox__header__nameText {
   margin-right: 2rem;
@@ -322,6 +344,11 @@ button {
   align-items: center;
   background-color: #F6F1F1;
 }
+@media (max-width: 660px) {
+  .chat-form__field {
+    height: 70px;
+  }
+}
 .chat-form__field .chat-form__msg {
   height: 100px;
   width: calc(100% - 120px);
@@ -333,12 +360,24 @@ button {
 .chat-form__field .chat-form__msg:focus {
   outline: none;
 }
+@media (max-width: 660px) {
+  .chat-form__field .chat-form__msg {
+    height: 60px;
+    width: calc(100% - 120px);
+    border-radius: 0;
+  }
+}
 .chat-form__field .chat-form__bt {
   height: 100px;
   width: 100px;
   border-radius: 8px;
   background-color: #E63E6D;
   color: #FFFFFF;
+}
+@media (max-width: 660px) {
+  .chat-form__field .chat-form__bt {
+    height: 60px;
+  }
 }
 .chat-form__field .chat-form__bt:hover {
   cursor: pointer;

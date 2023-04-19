@@ -10,7 +10,7 @@ import { MessageInterface } from 'lib/types/messageInterface'
 const ChattingBox = () => {
 	const messageList = useRecoilValue<MessageInterface[]>(messageSelector)
 	return (
-		<header className="chattingBox__background">
+		<div className="chattingBox__background">
 			<div className="chattingBox" ref={useModal()}>
 				<ChattingBoxHeader />
 				<ChattingView
@@ -19,7 +19,7 @@ const ChattingBox = () => {
 				/>
 				<ChattingBoxForm />
 			</div>
-		</header>
+		</div>
 	)
 }
 
