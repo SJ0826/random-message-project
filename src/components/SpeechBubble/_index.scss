@@ -3,6 +3,8 @@
   @include tablet-size() {
     margin-top: 1rem;
   }
+
+  margin-bottom: 1rem;
 }
 
 .start__description__icon{
@@ -14,6 +16,10 @@
   background-image: url("../assets/image/cat.png");
   background-size: cover;
   background-position: center;
+
+  &.send{
+    visibility: hidden;
+  }
 }
 
 .start__description__content__wrapper{
@@ -26,14 +32,32 @@
 }
 
 .start__description__content{
-  background-color: $back-ground-light;
+  // background-color: $back-ground-light;
   white-space: pre-line;
+  word-wrap: break-word;
   padding: 1rem;
 
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  color: black;
+  // color: black;
+
+  &.default {
+    background-color: $back-ground-light;
+    color: $text-dark1
+  }
+
+  &.receive{
+    background-color: $back-ground-light2;
+    color: $text-dark1;
+  }
+
+  &.send {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 30px;
+    background-color: $main-color;
+    color: $text-light1;
+  }
 
   @include tablet-size() {
     font-size: 0.8rem;
@@ -41,5 +65,9 @@
 }
 
 .start__description__date{
-  color: $text-light1;
+  color: $text-dark1;
+
+  &.send{
+    text-align: right;
+  }
 }

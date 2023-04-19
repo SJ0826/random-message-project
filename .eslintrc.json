@@ -1,7 +1,8 @@
 {
   "env": {
-    "browser": true,
-    "es2021": true
+    "node": true,
+    "es2021": true,
+    "commonjs": true
   },
   "extends": [
     "eslint:recommended",
@@ -21,7 +22,7 @@
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "semi": "off",
-    "no-console": "warn"
+    "no-console": "off"
   },
   "settings": {
     "import/resolver": {

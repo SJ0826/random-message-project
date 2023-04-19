@@ -31,6 +31,16 @@ button {
     opacity: 1;
   }
 }
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
 .start__container {
   height: 100%;
   width: 100%;
@@ -38,6 +48,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-color: #39B5E0;
 }
 
@@ -47,7 +58,7 @@ button {
   justify-content: center;
   flex-direction: column;
   width: 70vw;
-  height: 100%;
+  height: 100vh;
 }
 @media (max-width: 660px) {
   .page__layout {
@@ -73,6 +84,7 @@ button {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 @media (max-width: 660px) {
   .start__description__wrapper {
@@ -91,6 +103,9 @@ button {
   background-size: cover;
   background-position: center;
 }
+.start__description__icon.send {
+  visibility: hidden;
+}
 
 .start__description__content__wrapper {
   display: flex;
@@ -104,13 +119,26 @@ button {
 }
 
 .start__description__content {
-  background-color: #FFFFFF;
   white-space: pre-line;
+  word-wrap: break-word;
   padding: 1rem;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  color: black;
+}
+.start__description__content.default {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+.start__description__content.receive {
+  background-color: #F6F1F1;
+  color: #000000;
+}
+.start__description__content.send {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 30px;
+  background-color: #39B5E0;
+  color: #FFFFFF;
 }
 @media (max-width: 660px) {
   .start__description__content {
@@ -119,7 +147,10 @@ button {
 }
 
 .start__description__date {
-  color: #FFFFFF;
+  color: #000000;
+}
+.start__description__date.send {
+  text-align: right;
 }
 
 .messageList__container {
@@ -165,6 +196,8 @@ button {
   background-color: #F0D264;
   color: #FFFFFF;
   cursor: pointer;
+  border: none;
+  outline: none;
   border-radius: 0.5rem;
   box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, 0.7), 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
 }
@@ -189,6 +222,8 @@ button {
 .footer {
   width: 100%;
   max-width: 650px;
+  position: absolute;
+  bottom: 0;
   padding: 1rem;
   text-align: left;
 }
@@ -209,4 +244,147 @@ button {
   background-image: url("../assets/image/github-mark.png");
   background-size: cover;
   background-position: center;
+}
+
+.chattingBox__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.chattingBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 700px;
+  height: 500px;
+  z-index: 99;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  animation: modal-show 0.3s;
+}
+@media (max-width: 660px) {
+  .chattingBox {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.chattingBox__header {
+  height: 18%;
+  background-color: #F6F1F1;
+}
+
+.chattingBox__header__btnWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+  padding: 0.3rem 1.2rem;
+  background-color: #0B2447;
+}
+.chattingBox__header__btnWrapper .chattingBox__header__text {
+  color: #FFFFFF;
+}
+.chattingBox__header__btnWrapper .chattingBox__header__closeBtn {
+  padding: 0rem;
+  background-color: #0B2447;
+  color: #FFFFFF;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 1rem;
+  height: 1rem;
+  font-size: 1.2rem;
+}
+@media (max-width: 660px) {
+  .chattingBox__header__btnWrapper .chattingBox__header__closeBtn {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.chattingBox__header__name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+}
+@media (max-width: 660px) {
+  .chattingBox__header__name {
+    padding: 0rem 0.5rem;
+  }
+}
+.chattingBox__header__name .chattingBox__header__nameText {
+  margin-right: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0B2447;
+}
+.chattingBox__header__name .chattingBox__header__input {
+  width: 75%;
+  height: 70%;
+  padding: 0rem 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+}
+
+.chat-form__field {
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #F6F1F1;
+}
+@media (max-width: 660px) {
+  .chat-form__field {
+    height: 70px;
+  }
+}
+.chat-form__field .chat-form__msg {
+  height: 100px;
+  width: calc(100% - 120px);
+  border-radius: 0;
+  padding: 10px;
+  border: none;
+  resize: none;
+}
+.chat-form__field .chat-form__msg:focus {
+  outline: none;
+}
+@media (max-width: 660px) {
+  .chat-form__field .chat-form__msg {
+    height: 60px;
+    width: calc(100% - 120px);
+    border-radius: 0;
+  }
+}
+.chat-form__field .chat-form__bt {
+  height: 100px;
+  width: 100px;
+  border-radius: 8px;
+  background-color: #E63E6D;
+  color: #FFFFFF;
+}
+@media (max-width: 660px) {
+  .chat-form__field .chat-form__bt {
+    height: 60px;
+  }
+}
+.chat-form__field .chat-form__bt:hover {
+  cursor: pointer;
+}
+
+.preview__bubbles {
+  padding: 1rem 0rem;
+  height: calc(82% - 120px);
+  overflow: auto;
 }
