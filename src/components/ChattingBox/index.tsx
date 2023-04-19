@@ -1,15 +1,16 @@
 import useModal from 'lib/hooks/useModal'
-import React from 'react'
+import React, { useState } from 'react'
 import ChattingBoxHeader from './ChattingBoxHeader'
 import ChattingBoxForm from './ChattingBoxForm'
-import ChattingPreview from './ChattingPreview'
+import ChattingView from './ChattingView'
 
 const ChattingBox = () => {
+	const [isSendMessage, setIsSendMessage] = useState(false)
 	return (
 		<header className="chattingBox__background">
 			<div className="chattingBox" ref={useModal()}>
 				<ChattingBoxHeader />
-				<ChattingPreview />
+				<ChattingView />
 				<ChattingBoxForm />
 			</div>
 		</header>

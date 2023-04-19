@@ -2,14 +2,25 @@ import { createMessage } from 'lib/db/createMessage'
 import getMessage from 'lib/db/getMessage'
 import useMessageFormInput from 'lib/hooks/useMessageFormInput'
 import { messageFormAtom } from 'lib/recoil/recoilMessageFormState'
+import { messageSelector } from 'lib/recoil/recoilMessageState'
+import { MessageInterface } from 'lib/types/messageInterface'
 import React, { FormEvent } from 'react'
-import { useRecoilValue } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 const ChattingBoxForm = () => {
 	const messageForm = useRecoilValue(messageFormAtom)
+	const setMessageList = useSetRecoilState<MessageInterface[]>(messageSelector)
 	const onSubmitChatForm = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		await getMessage()
+		const receivedMessage = await getMessage()
+		setMessageList([
+			{
+				id: receivedMessage.id,
+				name: receivedMessage.name,
+				receivedMessage: receivedMessage.message,
+				message: messageForm.message,
+			},
+		])
 		createMessage(messageForm)
 	}
 

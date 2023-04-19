@@ -4,5 +4,6 @@ export interface MessageFormInterface {
 }
 
 export interface MessageInterface extends MessageFormInterface {
-	id: number
+	id: string
+	receivedMessage: string
 }
