@@ -6,9 +6,17 @@ import { SetterOrUpdater, useRecoilValue } from 'recoil'
 interface ChattingBoxHeaderProps {
 	setIsOpen: SetterOrUpdater<boolean>
 	name: string
+	state: 'chatBox' | 'messageLogging'
 }
-const ChattingBoxHeader = ({ setIsOpen, name }: ChattingBoxHeaderProps) => {
+const ChattingBoxHeader = ({
+	setIsOpen,
+	name,
+	state,
+}: ChattingBoxHeaderProps) => {
 	const messageForm = useRecoilValue(messageFormAtom)
+	const nameInputLabel = state === 'chatBox' ? 'Name' : 'From'
+	const nameInputValue = state === 'chatBox' ? messageForm.name : name
+	const namePlaceholder = state === 'chatBox' ? '이름을 입력해주세요' : ''
 
 	return (
 		<div className="chattingBox__header">
@@ -22,17 +30,17 @@ const ChattingBoxHeader = ({ setIsOpen, name }: ChattingBoxHeaderProps) => {
 				</button>
 			</div>
 			<div className="chattingBox__header__name">
-				<span className="chattingBox__header__nameText">Name</span>
+				<span className="chattingBox__header__nameText">{nameInputLabel}</span>
 				<input
 					id="name"
 					className="chattingBox__header__input"
-					placeholder="이름을 입력해주세요"
+					placeholder={namePlaceholder}
 					onChange={useMessageFormInput()}
-					value={messageForm.name}
+					value={nameInputValue}
 				/>
 			</div>
 		</div>
 	)
 }
 
-export default ChattingBoxHeader
+export default React.memo(ChattingBoxHeader)

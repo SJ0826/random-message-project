@@ -7,7 +7,6 @@ interface ChattingViewProps {
 }
 const ChattingView = ({ message, receivedMessage }: ChattingViewProps) => {
 	const [showReceivedMessage, setShowReceivedMessage] = useState(false)
-	console.log(message)
 	useEffect(() => {
 		setShowReceivedMessage(false)
 		const handleShowReceivedMessage = () => {
@@ -31,4 +30,4 @@ const ChattingView = ({ message, receivedMessage }: ChattingViewProps) => {
 	)
 }
 
-export default ChattingView
+export default React.memo(ChattingView)

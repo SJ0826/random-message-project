@@ -21,6 +21,7 @@ const MessageItem = ({ name, message, receivedMessage }: MessageItemProps) => {
 					name={name}
 					message={message}
 					receivedMessage={receivedMessage}
+					state="messageLogging"
 				/>
 			)}
 		</>

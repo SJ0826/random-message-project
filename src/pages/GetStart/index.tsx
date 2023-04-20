@@ -31,6 +31,7 @@ const GetStart = () => {
 					name={messageList[messageList.length - 1]?.name}
 					message={messageList[messageList.length - 1]?.message}
 					receivedMessage={messageList[messageList.length - 1]?.receivedMessage}
+					state="chatBox"
 				/>
 			)}
 		</div>

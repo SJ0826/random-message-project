@@ -10,22 +10,24 @@ interface ChattingBoxProps {
 	name: string
 	message: string
 	receivedMessage: string
+	state: 'chatBox' | 'messageLogging'
 }
 const ChattingBox = ({
 	setIsOpen,
 	name,
 	message,
 	receivedMessage,
+	state,
 }: ChattingBoxProps) => {
 	return (
 		<div className="chattingBox__background">
 			<div className="chattingBox" ref={useModal(setIsOpen)}>
-				<ChattingBoxHeader setIsOpen={setIsOpen} name={name} />
+				<ChattingBoxHeader setIsOpen={setIsOpen} name={name} state={state} />
 				<ChattingView message={message} receivedMessage={receivedMessage} />
-				<ChattingBoxForm />
+				<ChattingBoxForm state={state} />
 			</div>
 		</div>
 	)
 }
 
-export default ChattingBox
+export default React.memo(ChattingBox)
