@@ -1,0 +1,390 @@
+* {
+  font-family: "NanumBarunpen";
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+button {
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "NanumBarunpen";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+.start__container {
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #39B5E0;
+}
+
+.page__layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70vw;
+  height: 100vh;
+}
+@media (max-width: 660px) {
+  .page__layout {
+    width: 90%;
+  }
+}
+
+.start__title {
+  margin: 5rem 0rem 2rem 0rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+@media (max-width: 660px) {
+  .start__title {
+    font-size: 2rem;
+    margin: 3rem 0rem 0rem 0rem;
+    height: 5rem;
+  }
+}
+
+.start__description__wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+@media (max-width: 660px) {
+  .start__description__wrapper {
+    margin-top: 1rem;
+  }
+}
+
+.start__description__icon {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 3rem;
+  margin-right: 1em;
+  border: 1px solid #0B2447;
+  background-color: wheat;
+  background-image: url("../assets/image/cat.png");
+  background-size: cover;
+  background-position: center;
+}
+.start__description__icon.send {
+  visibility: hidden;
+}
+
+.start__description__content__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+}
+@media (max-width: 660px) {
+  .start__description__content__wrapper {
+    width: 70%;
+  }
+}
+
+.start__description__content {
+  white-space: pre-line;
+  word-wrap: break-word;
+  padding: 1rem;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.start__description__content.default {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+.start__description__content.receive {
+  background-color: #F6F1F1;
+  color: #000000;
+}
+.start__description__content.send {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 30px;
+  background-color: #39B5E0;
+  color: #FFFFFF;
+}
+@media (max-width: 660px) {
+  .start__description__content {
+    font-size: 0.8rem;
+  }
+}
+
+.start__description__date {
+  color: #000000;
+}
+.start__description__date.send {
+  text-align: right;
+}
+
+.messageList__container {
+  margin-top: 3rem;
+  margin-left: 1rem;
+  width: 100%;
+  max-width: 650px;
+}
+@media (max-width: 660px) {
+  .messageList__container {
+    margin-left: 0rem;
+  }
+}
+
+.messageList__content, .messageList_list, .messageList__header {
+  padding: 1rem;
+  border-bottom: 1px solid #0B2447;
+}
+
+.messageList__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.messageList__header .received__message {
+  display: flex;
+  align-items: center;
+}
+.messageList__header .received__message .received__message__number {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1em;
+  padding: 1em;
+  background-color: #E63E6D;
+  color: #FFFFFF;
+}
+.messageList__header .send__message__button {
+  padding: 0.5rem;
+  background-color: #F0D264;
+  color: #FFFFFF;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 rgba(196, 172, 83, 0.7), 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.messageList__header .send__message__button:active {
+  box-shadow: 0 0 0 1px #F0D264 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.messageItem {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.messageItem:hover {
+  cursor: pointer;
+}
+.messageItem .messageItem__name {
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+.footer {
+  width: 100%;
+  max-width: 650px;
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  text-align: left;
+}
+.footer .github__link {
+  display: flex;
+  align-items: center;
+  text-decoration-line: none;
+  color: #000000;
+}
+.footer .github__link:hover {
+  cursor: pointer;
+}
+
+.github__link__icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  background-image: url("../assets/image/github-mark.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.chattingBox__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.chattingBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 700px;
+  height: 500px;
+  z-index: 99;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  animation: modal-show 0.3s;
+}
+@media (max-width: 660px) {
+  .chattingBox {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.chattingBox__header {
+  height: 18%;
+  background-color: #F6F1F1;
+}
+
+.chattingBox__header__btnWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+  padding: 0.3rem 1.2rem;
+  background-color: #0B2447;
+}
+.chattingBox__header__btnWrapper .chattingBox__header__text {
+  color: #FFFFFF;
+}
+.chattingBox__header__btnWrapper .chattingBox__header__closeBtn {
+  padding: 0rem;
+  background-color: #0B2447;
+  color: #FFFFFF;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 1rem;
+  height: 1rem;
+  font-size: 1.2rem;
+}
+@media (max-width: 660px) {
+  .chattingBox__header__btnWrapper .chattingBox__header__closeBtn {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.chattingBox__header__name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+}
+@media (max-width: 660px) {
+  .chattingBox__header__name {
+    padding: 0rem 0.5rem;
+  }
+}
+.chattingBox__header__name .chattingBox__header__nameText {
+  margin-right: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0B2447;
+}
+.chattingBox__header__name .chattingBox__header__input {
+  width: 75%;
+  height: 70%;
+  padding: 0rem 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+}
+
+.chat-form__field {
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #F6F1F1;
+}
+@media (max-width: 660px) {
+  .chat-form__field {
+    height: 70px;
+  }
+}
+.chat-form__field .chat-form__msg {
+  height: 100px;
+  width: calc(100% - 120px);
+  border-radius: 0;
+  padding: 10px;
+  border: none;
+  resize: none;
+}
+.chat-form__field .chat-form__msg:focus {
+  outline: none;
+}
+@media (max-width: 660px) {
+  .chat-form__field .chat-form__msg {
+    height: 60px;
+    width: calc(100% - 120px);
+    border-radius: 0;
+  }
+}
+.chat-form__field .chat-form__bt {
+  height: 100px;
+  width: 100px;
+  border-radius: 8px;
+  background-color: #E63E6D;
+  color: #FFFFFF;
+}
+@media (max-width: 660px) {
+  .chat-form__field .chat-form__bt {
+    height: 60px;
+  }
+}
+.chat-form__field .chat-form__bt:hover {
+  cursor: pointer;
+}
+
+.preview__bubbles {
+  padding: 1rem 0rem;
+  height: calc(82% - 120px);
+  overflow: auto;
+}

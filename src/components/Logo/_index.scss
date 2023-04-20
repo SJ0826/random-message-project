@@ -1,0 +1,13 @@
+.start__title{
+  margin: 5rem 0rem 2rem 0rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: $text-light1;
+  // animation: fade-in 5s;
+
+  @include tablet-size() {
+    font-size: 2rem;
+    margin: 3rem 0rem 0rem 0rem;
+    height: 5rem;
+  }
+}

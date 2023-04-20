@@ -1,0 +1,20 @@
+@mixin set-box-size($height: 100%, $width: 100%, $border-radius: 0) {
+  height: $height;
+  width: $width;
+  border-radius: $border-radius;
+}
+
+@mixin set-center-aligned($display: flex, $align-items: center, $justify-content: center) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin set-button($padding: 0.5rem, $bgColor, $color){
+  padding: $padding;
+  background-color: $bgColor;
+  color: $color;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}

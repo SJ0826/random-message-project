@@ -1,0 +1,48 @@
+.chat-form__field {
+  @include tablet-size(){
+    height: 70px;
+  }
+
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $back-ground-light2;
+
+  .chat-form__msg {
+    @include set-box-size(100px, calc(100% - 120px));
+    @include tablet-size(){
+      @include set-box-size(60px, calc(100% - 120px));
+    }
+
+    padding: 10px;
+    border: none;
+    resize: none;
+
+    &:focus {
+      outline: none;
+    }
+    &.messageLogging{
+      
+    }
+    
+  }
+
+  .chat-form__bt {
+    @include set-box-size(100px, 100px, 8px);
+    @include tablet-size(){
+      height: 60px;
+    }
+
+    background-color: $point-red1;
+    color: $text-light1;
+
+    &:hover{
+      cursor: pointer;
+    }
+    // &:active {
+    //   background-color: $active-color;
+    // }
+  }
+}
+

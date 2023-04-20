@@ -1,0 +1,16 @@
+.messageItem{
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  
+  background-color: rgba(0, 0, 0, 0.1);
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  .messageItem__name{
+    margin-left: 0.5rem;
+    font-weight: 600;
+  }
+}
