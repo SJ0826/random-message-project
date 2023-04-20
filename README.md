@@ -1,4 +1,4 @@
-# 메세지가 도착했습니다 ✉
+# 메세지가 도착했습니다 ✉ [![CI/CD](https://github.com/SJ0826/random-message-project/actions/workflows/CICD.yml/badge.svg)](https://github.com/SJ0826/random-message-project/actions/workflows/CICD.yml)
 
 ![image](https://user-images.githubusercontent.com/56298540/230632302-d7833ce6-66de-4032-9bee-3487d860322b.png)
 
