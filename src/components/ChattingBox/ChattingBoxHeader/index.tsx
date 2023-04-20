@@ -1,3 +1,9 @@
+import {
+	CHATBOX_PLACEHOLDER,
+	CHATBOX_TITLE,
+	NAME_INPUT_LABEL_CHATBOX,
+	NAME_INPUT_LABEL_LOGGING,
+} from 'lib/constants/constants'
 import useMessageFormInput from 'lib/hooks/useMessageFormInput'
 import { messageFormAtom } from 'lib/recoil/recoilMessageFormState'
 import React from 'react'
@@ -14,14 +20,15 @@ const ChattingBoxHeader = ({
 	state,
 }: ChattingBoxHeaderProps) => {
 	const messageForm = useRecoilValue(messageFormAtom)
-	const nameInputLabel = state === 'chatBox' ? 'Name' : 'From'
+	const nameInputLabel =
+		state === 'chatBox' ? NAME_INPUT_LABEL_CHATBOX : NAME_INPUT_LABEL_LOGGING
 	const nameInputValue = state === 'chatBox' ? messageForm.name : name
-	const namePlaceholder = state === 'chatBox' ? '이름을 입력해주세요' : ''
+	const namePlaceholder = state === 'chatBox' ? CHATBOX_PLACEHOLDER : ''
 
 	return (
 		<div className="chattingBox__header">
 			<div className="chattingBox__header__btnWrapper">
-				<span className="chattingBox__header__text">메세지 보내기</span>
+				<span className="chattingBox__header__text">{CHATBOX_TITLE}</span>
 				<button
 					className="chattingBox__header__closeBtn"
 					onClick={() => setIsOpen(false)}

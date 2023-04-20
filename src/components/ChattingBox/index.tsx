@@ -24,7 +24,7 @@ const ChattingBox = ({
 			<div className="chattingBox" ref={useModal(setIsOpen)}>
 				<ChattingBoxHeader setIsOpen={setIsOpen} name={name} state={state} />
 				<ChattingView message={message} receivedMessage={receivedMessage} />
-				<ChattingBoxForm state={state} />
+				<ChattingBoxForm isDisabled={state === 'messageLogging'} />
 			</div>
 		</div>
 	)
