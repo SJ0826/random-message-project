@@ -3,24 +3,31 @@ import React from 'react'
 import ChattingBoxHeader from './ChattingBoxHeader'
 import ChattingBoxForm from './ChattingBoxForm'
 import ChattingView from './ChattingView'
-import { useRecoilValue } from 'recoil'
-import { messageSelector } from 'lib/recoil/recoilMessageState'
-import { MessageInterface } from 'lib/types/messageInterface'
+import { SetterOrUpdater } from 'recoil'
 
-const ChattingBox = () => {
-	const messageList = useRecoilValue<MessageInterface[]>(messageSelector)
+interface ChattingBoxProps {
+	setIsOpen: SetterOrUpdater<boolean>
+	name: string
+	message: string
+	receivedMessage: string
+	state: 'chatBox' | 'messageLogging'
+}
+const ChattingBox = ({
+	setIsOpen,
+	name,
+	message,
+	receivedMessage,
+	state,
+}: ChattingBoxProps) => {
 	return (
 		<div className="chattingBox__background">
-			<div className="chattingBox" ref={useModal()}>
-				<ChattingBoxHeader />
-				<ChattingView
-					message={messageList[messageList.length - 1]?.message}
-					receivedMessage={messageList[messageList.length - 1]?.receivedMessage}
-				/>
-				<ChattingBoxForm />
+			<div className="chattingBox" ref={useModal(setIsOpen)}>
+				<ChattingBoxHeader setIsOpen={setIsOpen} name={name} state={state} />
+				<ChattingView message={message} receivedMessage={receivedMessage} />
+				<ChattingBoxForm isDisabled={state === 'messageLogging'} />
 			</div>
 		</div>
 	)
 }
 
-export default ChattingBox
+export default React.memo(ChattingBox)

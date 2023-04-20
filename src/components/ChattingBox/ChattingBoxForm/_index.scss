@@ -1,16 +1,19 @@
 .chat-form__field {
+  @include tablet-size(){
+    height: 70px;
+  }
+
   height: 120px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: $back-ground-light2;
 
-  @include tablet-size(){
-    height: 70px;
-  }
-
   .chat-form__msg {
     @include set-box-size(100px, calc(100% - 120px));
+    @include tablet-size(){
+      @include set-box-size(60px, calc(100% - 120px));
+    }
 
     padding: 10px;
     border: none;
@@ -19,10 +22,10 @@
     &:focus {
       outline: none;
     }
-
-    @include tablet-size(){
-      @include set-box-size(60px, calc(100% - 120px));
+    &.messageLogging{
+      
     }
+    
   }
 
   .chat-form__bt {

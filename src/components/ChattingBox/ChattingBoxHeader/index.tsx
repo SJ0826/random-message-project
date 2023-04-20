@@ -1,36 +1,53 @@
+import {
+	CHATBOX_PLACEHOLDER,
+	CHATBOX_TITLE,
+	NAME_INPUT_LABEL_CHATBOX,
+	NAME_INPUT_LABEL_LOGGING,
+} from 'lib/constants/constants'
 import useMessageFormInput from 'lib/hooks/useMessageFormInput'
 import { messageFormAtom } from 'lib/recoil/recoilMessageFormState'
-import { setModalOpen } from 'lib/recoil/recoilMessageState'
 import React from 'react'
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { SetterOrUpdater, useRecoilValue } from 'recoil'
 
-const ChattingBoxHeader = () => {
-	const setModalstate = useSetRecoilState(setModalOpen)
+interface ChattingBoxHeaderProps {
+	setIsOpen: SetterOrUpdater<boolean>
+	name: string
+	state: 'chatBox' | 'messageLogging'
+}
+const ChattingBoxHeader = ({
+	setIsOpen,
+	name,
+	state,
+}: ChattingBoxHeaderProps) => {
 	const messageForm = useRecoilValue(messageFormAtom)
+	const nameInputLabel =
+		state === 'chatBox' ? NAME_INPUT_LABEL_CHATBOX : NAME_INPUT_LABEL_LOGGING
+	const nameInputValue = state === 'chatBox' ? messageForm.name : name
+	const namePlaceholder = state === 'chatBox' ? CHATBOX_PLACEHOLDER : ''
 
 	return (
 		<div className="chattingBox__header">
 			<div className="chattingBox__header__btnWrapper">
-				<span className="chattingBox__header__text">메세지 보내기</span>
+				<span className="chattingBox__header__text">{CHATBOX_TITLE}</span>
 				<button
 					className="chattingBox__header__closeBtn"
-					onClick={() => setModalstate(false)}
+					onClick={() => setIsOpen(false)}
 				>
 					✖
 				</button>
 			</div>
 			<div className="chattingBox__header__name">
-				<span className="chattingBox__header__nameText">Name</span>
+				<span className="chattingBox__header__nameText">{nameInputLabel}</span>
 				<input
 					id="name"
 					className="chattingBox__header__input"
-					placeholder="이름을 입력해주세요"
+					placeholder={namePlaceholder}
 					onChange={useMessageFormInput()}
-					value={messageForm.name}
+					value={nameInputValue}
 				/>
 			</div>
 		</div>
 	)
 }
 
-export default ChattingBoxHeader
+export default React.memo(ChattingBoxHeader)
