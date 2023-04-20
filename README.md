@@ -11,9 +11,12 @@
 이 프로젝트는 **익명성**과 **무작위성**을 가지고 있으며, 사용자의 개인 정보를 저장하지 않아 안정성을 보장합니다.
 
 ## ✔ 프로젝트 살펴보기
+[✉ 배포링크](http://random-message.s3-website.ap-northeast-2.amazonaws.com/)
 
 ```
-
+git clone https://github.com/SJ0826/random-message-project.git
+cd random-message-project
+yarn install 또는 npm install
 ```
 
 ## 🔨 기술 스택
@@ -22,4 +25,6 @@
 - **React**: 모듈성이 높고 유지보수에 유리합니다.
 - **Recoil**: 전역 상태관리를 가능하게 합니다. 프로젝트의 크기가 크지 않아 Redux대신 도입했습니다.
 - **Sass**: CSS가 가진 대부분의 기능을 지원하며 믹스인 등의 기능으로 생산성을 더욱 높일 수 있습니다.
-- **FireBase**: 백엔드 없이도 간단하고 빠르게 API를 생성할 수 있습니다.
+- **FireStore**: 백엔드 없이도 간단하고 빠르게 원격으로 데이터베이스를 관리할 수 있습니다.
+
+## ⭐ 주요 기능
