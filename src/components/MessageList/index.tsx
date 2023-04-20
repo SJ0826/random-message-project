@@ -1,11 +1,12 @@
 import MessageItem from 'components/MessageItem'
-import { messageListAtom, setModalOpen } from 'lib/recoil/recoilMessageState'
+import { chatBoxModalStateAtom } from 'lib/recoil/recoilModalOpenState'
+import { messageListAtom } from 'lib/recoil/recoilMessageState'
 import React from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 const MessageList = () => {
 	const messageList = useRecoilValue(messageListAtom)
-	const setModalstate = useSetRecoilState(setModalOpen)
+	const setModalstate = useSetRecoilState(chatBoxModalStateAtom)
 	return (
 		<section className="messageList__container">
 			<div className="messageList__header">
@@ -22,7 +23,12 @@ const MessageList = () => {
 			</div>
 			<div className="messageList_list">
 				{messageList.map((message) => (
-					<MessageItem key={message.id} name={message.name} />
+					<MessageItem
+						key={message.id}
+						name={message.name}
+						message={message.message}
+						receivedMessage={message.receivedMessage}
+					/>
 				))}
 			</div>
 		</section>

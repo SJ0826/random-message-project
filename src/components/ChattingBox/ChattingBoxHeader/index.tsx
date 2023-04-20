@@ -1,11 +1,13 @@
 import useMessageFormInput from 'lib/hooks/useMessageFormInput'
 import { messageFormAtom } from 'lib/recoil/recoilMessageFormState'
-import { setModalOpen } from 'lib/recoil/recoilMessageState'
 import React from 'react'
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { SetterOrUpdater, useRecoilValue } from 'recoil'
 
-const ChattingBoxHeader = () => {
-	const setModalstate = useSetRecoilState(setModalOpen)
+interface ChattingBoxHeaderProps {
+	setIsOpen: SetterOrUpdater<boolean>
+	name: string
+}
+const ChattingBoxHeader = ({ setIsOpen, name }: ChattingBoxHeaderProps) => {
 	const messageForm = useRecoilValue(messageFormAtom)
 
 	return (
@@ -14,7 +16,7 @@ const ChattingBoxHeader = () => {
 				<span className="chattingBox__header__text">메세지 보내기</span>
 				<button
 					className="chattingBox__header__closeBtn"
-					onClick={() => setModalstate(false)}
+					onClick={() => setIsOpen(false)}
 				>
 					✖
 				</button>

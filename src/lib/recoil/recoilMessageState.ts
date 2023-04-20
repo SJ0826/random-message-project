@@ -13,8 +13,3 @@ export const messageSelector = selector({
 		set(messageListAtom, newValue)
 	},
 })
-
-export const setModalOpen = atom({
-	key: 'modalOpenState',
-	default: false,
-})

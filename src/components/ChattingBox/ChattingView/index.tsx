@@ -7,7 +7,7 @@ interface ChattingViewProps {
 }
 const ChattingView = ({ message, receivedMessage }: ChattingViewProps) => {
 	const [showReceivedMessage, setShowReceivedMessage] = useState(false)
-
+	console.log(message)
 	useEffect(() => {
 		setShowReceivedMessage(false)
 		const handleShowReceivedMessage = () => {
