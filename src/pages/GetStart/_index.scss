@@ -3,6 +3,8 @@
   @include set-center-aligned;
   flex-direction: column;
   background-color: $main-color;
+
+  overflow: auto;
 }
 
 
