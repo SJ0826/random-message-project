@@ -47,6 +47,8 @@ const ChattingBoxForm = ({ isDisabled }: ChattingBoxFormProps) => {
 				onChange={useMessageFormInput()}
 				ref={inputRef}
 				disabled={isDisabled}
+				placeholder={!isDisabled && '15글자 이상 입력해주세요'}
+				required
 			/>
 			<button className="chat-form__bt" type="submit" disabled={isDisabled}>
 				{isDisabled ? TRANSFER_COMPLETE : TRANSFER_NOT_COMPLETED}

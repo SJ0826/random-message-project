@@ -6,6 +6,7 @@ import {
 } from 'lib/constants/constants'
 import useMessageFormInput from 'lib/hooks/useMessageFormInput'
 import { messageFormAtom } from 'lib/recoil/recoilMessageFormState'
+import validateText from 'lib/util/validateText'
 import React from 'react'
 import { SetterOrUpdater, useRecoilValue } from 'recoil'
 
@@ -44,6 +45,7 @@ const ChattingBoxHeader = ({
 					placeholder={namePlaceholder}
 					onChange={useMessageFormInput()}
 					value={nameInputValue}
+					required
 				/>
 			</div>
 		</div>

@@ -4,6 +4,7 @@ import ChattingBoxHeader from './ChattingBoxHeader'
 import ChattingBoxForm from './ChattingBoxForm'
 import ChattingView from './ChattingView'
 import { SetterOrUpdater } from 'recoil'
+import validateText from 'lib/util/validateText'
 
 interface ChattingBoxProps {
 	setIsOpen: SetterOrUpdater<boolean>
