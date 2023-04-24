@@ -50,6 +50,7 @@ button {
   justify-content: center;
   flex-direction: column;
   background-color: #39B5E0;
+  overflow: auto;
 }
 
 .page__layout {
@@ -222,8 +223,6 @@ button {
 .footer {
   width: 100%;
   max-width: 650px;
-  position: absolute;
-  bottom: 0;
   padding: 1rem;
   text-align: left;
 }
@@ -357,15 +356,15 @@ button {
   border: none;
   resize: none;
 }
-.chat-form__field .chat-form__msg:focus {
-  outline: none;
-}
 @media (max-width: 660px) {
   .chat-form__field .chat-form__msg {
     height: 60px;
     width: calc(100% - 120px);
     border-radius: 0;
   }
+}
+.chat-form__field .chat-form__msg:focus {
+  outline: none;
 }
 .chat-form__field .chat-form__bt {
   height: 100px;
